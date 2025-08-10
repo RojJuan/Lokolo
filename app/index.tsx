@@ -1,15 +1,17 @@
-import { Text, View } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import WelcomeScreen from './screens/WelcomeScreen';
 
-export default function Index() {
+export default function IndexScreen() {
+  const navigation = useNavigation();
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false, // This hides the header
+    });
+  }, [navigation]);
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Lokolo!</Text>
-    </View>
+    <WelcomeScreen />
   );
 }
