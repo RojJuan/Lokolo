@@ -1,0 +1,17 @@
+# Lokolo Project Rules
+
+This is a React Native + Expo app for discovering local businesses based on the user's location and activity.
+
+## Tech stack
+
+- React Native (with Expo)
+- React Navigation
+- Google Places API (or Yelp API)
+- react-native-maps
+
+## Code style
+
+- Functional components only
+- Use hooks (useState, useEffect, etc.)
+- No inline styles, use StyleSheet
+- Use TypeScript if possible
