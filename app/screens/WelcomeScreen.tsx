@@ -1,9 +1,15 @@
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import { ImageBackground, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 type WelcomeScreenProps = Record<string, never>;
 
+type RootStackParamList = { Welcome: undefined; Home: undefined };
+type WelcomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Welcome'>;
+
 const WelcomeScreen: React.FC<WelcomeScreenProps> = () => {
+	const navigation = useNavigation<WelcomeScreenNavigationProp>();
   return (
     <SafeAreaView style={styles.safeArea}>
       <ImageBackground
@@ -23,7 +29,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = () => {
           </View>
           <Text style={styles.tagline}>Discover what&apos;s around you.</Text>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.getStartedButton} activeOpacity={0.85}>
+            <TouchableOpacity style={styles.getStartedButton} activeOpacity={0.85} onPress={() => navigation.navigate('Home')}>
               <Text style={styles.getStartedText}>Get Started</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.loginButton} activeOpacity={0.85}>
